@@ -48,11 +48,11 @@ const countLetter = (letter,word) => {
 }
 // 7,8.
 const convertCurrency = (value) => {
-    value = value.toLowerCase()
-    if (value.includes('$') && value.toLowerCase()) {
-        return Number(value.replace('$', '')) * 25 + `${' uah'}`
-    }else if(value.includes('uah')){
-        return Number(value.replace('uah','') / 25) + `${' $'}`;
+    const valueConvert = value.toLowerCase()
+    if (valueConvert.includes('$')) {
+        return Number(valueConvert.replace('$', '')) * 25 + `${' uah'}`
+    }else if(valueConvert.includes('uah')){
+        return Number(valueConvert.replace('uah','') / 25) + `${' $'}`;
     } else{
         return ('Error');
     }
@@ -67,10 +67,11 @@ const getRandomPassword = (num = 8) => {
 }
 // 10. 
 const deleteLetters = (ltr , sent) => {
-    while(sent.includes(ltr)){
-        sent = sent.replace(ltr,'')
+    let sentChng = sent
+    while(sentChng.includes(ltr)){
+        sentChng = sentChng.replace(ltr,'')
     }
-    return sent
+    return sentChng
 }
 // 11.
 const isPalyndrom = (word) => {
